@@ -1,5 +1,15 @@
-document.getElementById('search-box').addEventListener('input', function() {
-    let query = this.value.toLowerCase();
+document.getElementById('search-box').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        performSearch();
+    }
+});
+
+document.getElementById('search-button').addEventListener('click', function() {
+    performSearch();
+});
+
+function performSearch() {
+    let query = document.getElementById('search-box').value.toLowerCase();
     let results = [];
 
     // Örnek veri seti
@@ -34,4 +44,4 @@ document.getElementById('search-box').addEventListener('input', function() {
         li.appendChild(desc);
         resultsList.appendChild(li);
     }
-});
+}
